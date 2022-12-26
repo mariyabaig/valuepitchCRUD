@@ -34,6 +34,7 @@ const router = express.Router();
 //     console.log(req.body)
 // })
 
+//register user
 
 router.post("/registeration",async(req,res)=>{
     // console.log(req.body);
@@ -65,6 +66,16 @@ router.post("/registeration",async(req,res)=>{
     }
 })
 
+// get userdata
+router.get("/getdata", async(req,res)=>{
+    try {
+    const userdata = await users.find();
+    res.status(201).json(userdata)
+    console.log(userdata);
+    } catch (error) {
+        res.status(404).json(error)
+    }
+    })
 
 
 module.exports = router;
