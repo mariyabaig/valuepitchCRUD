@@ -2,40 +2,6 @@ const express = require("express");
 const users = require("../models/userSchema");
 const router = express.Router();
 
-
-// router.get("/",(req,res)=>{
-// console.log("connect");
-// });
-
-// router.post("/register",(req,res)=>{
-//     const{name,email,dob,address,country} = req.body
-//     if (!name || !email || !dob || !address || !country){
-//         res.status(404).send("fill the data")
-//     }
-//     try{
-//         const p = await users.findOne({email:email})
-//         if(preuser) {
-//             res.status (404).send("this is user is already present");
-//             }else{
-//             const adduser = new users({
-//             name, email, dob, address, country
-//             })
-//             await adduser.save();
-//             res.status(201).json(adduser);
-//             console.log(adduser)
-//             }
-//     }catch(error){
-//         res.status(404).send(error)
-//     }
-
-// })
-
-// router.post("/register",(req,res)=>{
-//     console.log(req.body)
-// })
-
-//register user
-
 router.post("/registeration",async(req,res)=>{
     // console.log(req.body);
     const {name,email,dob,address,country} = req.body;
@@ -77,5 +43,18 @@ router.get("/getdata", async(req,res)=>{
     }
     })
 
+//get individual user
+
+router.get("/getuser/:id", async(req,res)=>{
+    try {
+    console.log(req.params);
+    const {id} = req.params;
+    const individualUser = await users.findById({_id:id});
+    console.log(individualUser);
+    res.status (201).json (individualUser)
+    } catch (error) {
+    res.status(404).json(error)
+    }
+    })
 
 module.exports = router;
