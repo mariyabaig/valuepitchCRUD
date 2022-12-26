@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import AddIcon from '@mui/icons-material/Add';
 
 const Home = () => {
 const navigate = useNavigate();
@@ -23,12 +24,12 @@ const goToEdit = ()=>{
   return (
     <div>
     <div className="container flex flex-col">
-      <div className="flex flex-colitems-end">  <button
+      {/* <div className="flex flex-colitems-end">  <button
           onClick={console.log("clicked")}
           className="mt-3 btn btn-primary text-white py-2 px-2"
         >
           Add data
-        </button></div>
+        </button></div> */}
       
       
       <table className="table table-dark table-striped my-3">
@@ -82,7 +83,7 @@ const goToEdit = ()=>{
           </tr>
         </tbody>
       </table>
-      <div className="flex flex-col items-end">  <button className="btn btn-primary pt-2 py-2" onClick = {goToregister}>Register</button></div>
+      <div className="flex flex-col items-end">  <button className="btn btn-success pt-2 py-2" onClick = {goToregister}>Add new data <AddIcon/></button></div>
     </div>
     </div>
   );
