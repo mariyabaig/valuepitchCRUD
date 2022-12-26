@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
@@ -20,9 +20,6 @@ const goToEdit = ()=>{
   navigate("/edit")
   }
 
-  const goToDetails = ()=>{
-    navigate("/details")
-    }
 
 //get data on home page
 const [getUserdata, setUserdata] = useState([]);
@@ -83,8 +80,8 @@ useEffect(() => {
                                                 <td>{element.address}</td>
                                                 <td>{element.country}</td>
                                                 <td className="d-flex justify-content-between">
-                                                <button onClick={goToDetails} className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button>
-                                                <button onClick={goToEdit} className="btn btn-success mx-3"><EditIcon/></button>
+                                                <NavLink to ={`details/${element._id}`}><button className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button></NavLink>
+                                                <button className="btn btn-success mx-3"><EditIcon/></button>
                                                 <button className="btn btn-danger mx-3"><DeleteIcon/></button>
                                                 </td>
                                             </tr>

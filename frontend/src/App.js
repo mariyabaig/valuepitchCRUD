@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/edit/:id" element={<Edit/>}/>
-        {/* <Route exact path="/details/:id" element={<Details/>}/> */}
+        <Route exact path="/details/:id" element={<Details/>}/>
       </Routes>
     </BrowserRouter>
     </>
