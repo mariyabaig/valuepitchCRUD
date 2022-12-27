@@ -81,8 +81,8 @@ useEffect(() => {
                                                 <td>{element.country}</td>
                                                 <td className="d-flex justify-content-between">
                                                 <NavLink to ={`details/${element._id}`}><button className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button></NavLink>
-                                                <button className="btn btn-success mx-3"><EditIcon/></button>
-                                                <button className="btn btn-danger mx-3"><DeleteIcon/></button>
+                                                <NavLink to={`edit/${element._id}`}><button className="btn btn-success mx-3"><EditIcon/></button></NavLink>
+                                                 <button className="btn btn-danger mx-3"><DeleteIcon/></button>
                                                 </td>
                                             </tr>
                                         </>
