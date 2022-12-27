@@ -5,6 +5,7 @@ import Register from './Components/Register';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Edit from './Components/Edit';
 import Details from './Components/Details';
+import CSVtoTable from './Components/CSVtoTable';
 
 function App() {
   return (
@@ -13,13 +14,13 @@ function App() {
     
     <BrowserRouter>
     <Navbar/>
-
-    <Routes>
+<CSVtoTable/>
+     <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/edit/:id" element={<Edit/>}/>
         <Route exact path="/details/:id" element={<Details/>}/>
-      </Routes>
+      </Routes> 
     </BrowserRouter>
     </>
   );

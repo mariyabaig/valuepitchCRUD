@@ -6,7 +6,7 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect, useState } from "react";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
-
+import { CSVLink } from "react-csv";
 const Home = () => {
   //useNavigate hook to navigate to another page
   const navigate = useNavigate();
@@ -61,7 +61,14 @@ const Home = () => {
       getData();
     }
   };
-
+  const headers = [
+    { label: "Name", key: "name" },
+    { label: "Email", key: "email" },
+    { label: "Date of Birth", key: "dob" },
+    { label: "Address", key: "address" },
+    { label: "Country", key: "country" }
+    ,
+  ];
   return (
     <>
       {/* <div className="container flex flex-col">
@@ -220,14 +227,15 @@ return(
                            
                         </tbody>
                     </table>
-                    <ReactHTMLTableToExcel
+                    {/* <ReactHTMLTableToExcel
                     id="test-table-xls-button"
                     className="bg-green-700 py-2 px-2 text-white rounded download-table-xls-button "
                     table="table-to-xls"
-                    filename="tablexls"
-                    sheet="tablexls"
+                    filename="tablecsv"
+                    sheet="tablecsv"
                     buttonText="Export Data to Excel Sheet"
-                  />
+                  /> */}
+                  <CSVLink data={getUserdata} headers={headers} filename={"table.csv"} className="bg-green-700 py-2 px-2 text-white rounded "> Export table to CSV</CSVLink>
                 </div>
             </div>
         </div>
