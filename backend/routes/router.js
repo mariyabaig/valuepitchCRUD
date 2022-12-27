@@ -57,4 +57,28 @@ router.get("/getuser/:id", async(req,res)=>{
     }
     })
 
+
+//update or edit the data
+//using patch instead of put so that the complete data doesn't get updated
+
+router.patch("/updateuser/:id", async(req,res)=>{
+
+    try {
+        const {id} = req.params;
+        const updatedUser = await users.findByIdAndUpdate(id,req.body,{
+            new:true
+        });
+
+        console.log(updatedUser)
+        res.status(201).json(updatedUser)
+
+
+    } catch (error) {
+        res.status(404).json(error)
+        
+    }
+})
+
+
+
 module.exports = router;
