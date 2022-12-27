@@ -1,6 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MarkunreadOutlinedIcon from '@mui/icons-material/MarkunreadOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
+
 const Register = () => {
 
   const navigate = useNavigate();
@@ -43,7 +49,7 @@ const Register = () => {
       console.log("error ");
     } else {
       alert("data added");
-      
+
       navigate("/");
     }
   };
@@ -55,7 +61,7 @@ const Register = () => {
           <div className="row">
             <div className="mb-3 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputEmail1" className="form-label">
-                Name
+                Name <BadgeOutlinedIcon />
               </label>
               <input
                 type="text"
@@ -69,7 +75,7 @@ const Register = () => {
             </div>
             <div className="mb-3 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputPassword1" className="form-label">
-                email
+                Email <MarkunreadOutlinedIcon/>
               </label>
               <input
                 type="email"
@@ -82,7 +88,7 @@ const Register = () => {
             </div>
             <div className="mb-3 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputPassword1" className="form-label">
-                Date of birth
+                Date of birth <CalendarMonthOutlinedIcon/>
               </label>
               <input
                 type="date"
@@ -96,7 +102,7 @@ const Register = () => {
 
             <div className="mb-3 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputPassword1" className="form-label">
-                Address
+                Address <BusinessOutlinedIcon/>
               </label>
               <input
                 type="text"
@@ -110,7 +116,7 @@ const Register = () => {
 
             <div className="mb-3 col-lg-6 col-md-6 col-12">
               <label htmlFor="exampleInputPassword1" className="form-label">
-                Country
+                Country <PublicOutlinedIcon />
               </label>
               <input
                 type="text"

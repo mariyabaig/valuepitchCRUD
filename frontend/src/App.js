@@ -10,8 +10,10 @@ function App() {
   return (
     <>
     
-    <Navbar/>
+    
     <BrowserRouter>
+    <Navbar/>
+
     <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/register" element={<Register/>}/>
