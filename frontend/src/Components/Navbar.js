@@ -1,19 +1,23 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
   return (
     <>
-    <div className='flex flex-col justify-evenly'>
-       <nav className="navbar navbar-dark bg-dark">
-  <a className="navbar-brand mx-3">Valuepitch</a>
-
-  <form className="form-inline">
-  <div className='flex flex-col'></div>
-    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-</div>
+    
+    <nav className='w-full h-20 fixed bg-gray-900 text-gray-300'>
+    <input type="checkbox" id="check" hidden></input>
+    <label for="check" className='float-right mr-10 text-gray-300 text-3xl leading-[80px] lg:hidden'><MenuIcon/></label>
+      <label className='text-gray-300 leading-[80px] md:leading-[80px] pl-12 text-3xl md:pl-24 md:text-4xl'>Valuepitch</label>
+      <ul className='float-right mr-10 lg:flex space-x-4 leading-[80px] text-white uppercase rounded fixed lg:relative h-[100vh] lg:h-0 w-[100%]  lg:w-fit top-20 lg:top-0 left-[-100%] lg:left-0 transition-all duration-300 lg:transition-none text-center bg-gray-800'>
+      
+        <li><Link to ="/">Home</Link></li>
+        <li><Link to ="/csvtotable">Convert</Link></li>
+        <li><Link to ="/about">About</Link></li>
+        
+        
+      </ul>
+    </nav>
     </>
     
        
