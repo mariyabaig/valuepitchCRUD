@@ -79,8 +79,8 @@ const Details = () => {
             <Card sx={{ maxWidth: 600 }}>
                 <CardContent>
                     <div className="add_btn">
-                    <NavLink to={`/edit/${individualUser._id}`}> <button className="btn btn-primary mx-2"><CreateIcon /></button></NavLink>
-                    <button className="btn btn-danger" onClick={() => deleteUser(individualUser._id)}><DeleteOutlineIcon /></button>
+                    <NavLink to={`/edit/${individualUser._id}`}> <button className="btn mx-2"><CreateIcon /></button></NavLink>
+                    <button className="btn" onClick={() => deleteUser(individualUser._id)}><DeleteOutlineIcon /></button>
                     </div>
                     <div className="row">
                         <div className="left_view col-lg-6 col-md-6 col-12">

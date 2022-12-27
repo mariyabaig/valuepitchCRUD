@@ -125,7 +125,7 @@ const updateUser = async(e)=>{
                         <input type="text" onChange={editData} value={input.country} name="country" className="form-control" id="exampleInputPassword1" />
                     </div>
                 </div>
-                <button type="submit" onClick={updateUser} className='btn btn-success'>Update Data <BorderColorIcon/></button>
+                <button type="submit" onClick={updateUser} className='btn'>Update Data <BorderColorIcon/></button>
             </form>
         </div>   
     </>

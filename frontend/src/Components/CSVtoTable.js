@@ -46,8 +46,11 @@ export default function CSVtoTable() {
   };
 
   return (
+
     <>
-      <form className="mt-36">
+    <div className="container flex flex-col justify-center items-center">
+
+    <form className="mt-36">
         <input
           className="form-control"
           type="file"
@@ -69,15 +72,20 @@ export default function CSVtoTable() {
           Reset
         </button>
       </form>
+
+    </div>
+      
       
 
-      
+      <div className="flex flex-col justify-center items-center">
       <CsvToHtmlTable
         data={csvData}
         csvDelimiter=","
         hasHeader="true"
-        tableClassName="table table-hover table-striped table-hovered table-bordered"
+        tableClassName="table table-hover table-striped table-dark table-hovered table-bordered"
       />
+      </div>
+     
     </>
   );
 }
