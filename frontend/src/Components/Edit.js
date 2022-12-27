@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import {useParams,useNavigate  } from 'react-router-dom'
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 const Edit = () => {
@@ -12,6 +12,9 @@ const Edit = () => {
         country:""
 
     })
+
+//to redirect to home page after updation
+const navigate = useNavigate();
 
 
 const editData=(e)=>{
@@ -45,11 +48,13 @@ const getData = async () => {
 
     if (res.status === 422 || !data) {
         console.log("error ");
+        
 
     } else {
-        //to set the data in edit
+        //to show existing the data in edit
         setInput(data)
         console.log("get data");
+        
     }
 }
 
@@ -59,6 +64,37 @@ useEffect(() => {
 
 
 
+//update the data of individual user
+const updateUser = async(e)=>{
+    e.preventDefault();
+    const {name,email,dob,address,country}= input;
+    const res2 = await fetch(`/updateuser/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            name,email,dob,address,country
+        
+        })
+    });
+    const data2 = await res2.json();
+    console.log(data2);
+
+    if (res2.status === 422 || !data2) {
+        console.log("error ");
+
+    } else {
+        //to set the data in edit
+        setInput(data2)
+        console.log("get data");
+        navigate("/")
+    
+}
+    
+
+
+}
 
   return (
     <>
@@ -76,7 +112,7 @@ useEffect(() => {
                     </div>
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
                         <label htmlFor="exampleInputPassword1" className="form-label">Date of birth</label>
-                        <input type="datetime-local" id="Test_DatetimeLocal" onChange={editData} name="dob" value={input.dob} className="form-control" />
+                        <input type="date" id="Test_DatetimeLocal" onChange={editData} name="dob" value={input.dob} className="form-control" />
                     </div>
                     
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
@@ -89,7 +125,7 @@ useEffect(() => {
                         <input type="text" onChange={editData} value={input.country} name="country" className="form-control" id="exampleInputPassword1" />
                     </div>
                 </div>
-                <button className='btn btn-success'>Update Data <BorderColorIcon/></button>
+                <button type="submit" onClick={updateUser} className='btn btn-success'>Update Data <BorderColorIcon/></button>
             </form>
         </div>   
     </>
