@@ -23,7 +23,7 @@ const Details = () => {
     // const history = useHistory();
 
 
-    const getdata = async () => {
+    const getData = async () => {
 
         const res = await fetch(`/getuser/${id}`, {
             method: "GET",
@@ -45,7 +45,7 @@ const Details = () => {
     }
 
     useEffect(() => {
-        getdata();
+        getData();
     }, [])
 
     
