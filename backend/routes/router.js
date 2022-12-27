@@ -79,6 +79,21 @@ router.patch("/updateuser/:id", async(req,res)=>{
     }
 })
 
+//delete user
+router.delete("/deleteuser/:id", async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const deleteUser = await users.findByIdAndDelete({_id:id});
 
+        console.log(deleteUser)
+        res.status(201).json(deleteUser)
+
+
+    } catch (error) {
+        res.status(404).json(error)
+        
+    }
+
+})
 
 module.exports = router;

@@ -16,10 +16,6 @@ const goToregister = ()=>{
 navigate("/register")
 }
 
-const goToEdit = ()=>{
-  navigate("/edit")
-  }
-
 
 //get data on home page
 const [getUserdata, setUserdata] = useState([]);
@@ -50,6 +46,27 @@ useEffect(() => {
   getData();
 }, [])
 
+//delete a user
+const deleteUser = async(id) => {
+
+  const res2 = await fetch(`/deleteuser/${id}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  });
+
+  const deleteData = await res2.json();
+  console.log(deleteData);
+
+  if (res2.status === 422 || !deleteData) {
+      console.log("error");
+  } else {
+      console.log("user deleted");
+      getData();
+  }
+
+}
 
   return (
     <div>
@@ -82,7 +99,7 @@ useEffect(() => {
                                                 <td className="d-flex justify-content-between">
                                                 <NavLink to ={`details/${element._id}`}><button className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button></NavLink>
                                                 <NavLink to={`edit/${element._id}`}><button className="btn btn-success mx-3"><EditIcon/></button></NavLink>
-                                                 <button className="btn btn-danger mx-3"><DeleteIcon/></button>
+                                                 <button onClick = {()=>deleteUser(element._id)}className="btn btn-danger mx-3"><DeleteIcon/></button>
                                                 </td>
                                             </tr>
                                         </>
@@ -93,44 +110,7 @@ useEffect(() => {
 
 
         </tbody>
-          {/* <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>
-                <button onClick={goToDetails} className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button>
-                <button onClick={goToEdit} className="btn btn-success mx-3"><EditIcon/></button>
-                <button className="btn btn-danger mx-3"><DeleteIcon/></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-            <td>
-                <button onClick={goToDetails}className="btn btn-primary mx-3"><RemoveRedEyeIcon/></button>
-                <button  className="btn btn-success mx-3"><EditIcon/></button>
-                <button className="btn btn-danger mx-3"><DeleteIcon/></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry the Bird</td>
-            <td>@mdo</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-            <td>
-                <button onClick={goToDetails} className="btn btn-primary mx-3 "><RemoveRedEyeIcon/></button>
-                <button  className="btn btn-success mx-3 "><EditIcon/></button>
-                <button className="btn btn-danger mx-3 "><DeleteIcon/></button>
-            </td>
-            
-          </tr>
-        </tbody> */}
+          
       </table>
       <div className="flex flex-col items-end">  <button className="btn btn-success pt-2 py-2" onClick = {goToregister}>Add new data <AddIcon/></button></div>
     </div>

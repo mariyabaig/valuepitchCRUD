@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+
+  const navigate = useNavigate();
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -19,6 +23,8 @@ const Register = () => {
       };
     });
   };
+
+
   const addInput = async (e) => {
     e.preventDefault();
     const { name, email, dob, address, country } = input;
@@ -37,6 +43,8 @@ const Register = () => {
       console.log("error ");
     } else {
       alert("data added");
+      
+      navigate("/");
     }
   };
 
@@ -114,7 +122,7 @@ const Register = () => {
               />
             </div>
           </div>
-          <button onClick={addInput} className="btn btn-primary">
+          <button onClick={addInput}  className="btn btn-primary">
             Register
           </button>
         </form>
