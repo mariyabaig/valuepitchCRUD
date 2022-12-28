@@ -18,7 +18,7 @@ const navigate = useNavigate();
 
 
 const editData=(e)=>{
-    console.log(e.target.value)
+    // console.log(e.target.value)
     const { name, value } = e.target;
         setInput((preval) => {
             return {
@@ -31,7 +31,7 @@ const editData=(e)=>{
 
 //useParams used to fetch id of the user
 const { id } = useParams("");
-    console.log(id);
+    // console.log(id);
 
 
 const getData = async () => {
@@ -44,16 +44,16 @@ const getData = async () => {
     });
 
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     if (res.status === 422 || !data) {
-        console.log("error ");
+        // console.log("error ");
         
 
     } else {
         //to show existing the data in edit
         setInput(data)
-        console.log("get data");
+        // console.log("get data");
         
     }
 }
@@ -79,15 +79,15 @@ const updateUser = async(e)=>{
         })
     });
     const data2 = await res2.json();
-    console.log(data2);
+    // console.log(data2);
 
     if (res2.status === 422 || !data2) {
-        console.log("error ");
+        // console.log("error ");
 
     } else {
         //to set the data in edit
         setInput(data2)
-        console.log("get data");
+        // console.log("get data");
         navigate("/")
     
 }
@@ -98,7 +98,7 @@ const updateUser = async(e)=>{
 
   return (
     <>
-     <div className="flex flex-col justify-center items-center ">
+     <div className="flex flex-col justify-center items-center bg-gray-100 h-screen">
             
             <form className="form" style={{"marginTop":"120px" , "marginRight" :"12px" , "marginLeft":"12px"  }}>
                 <div className="row">
@@ -107,11 +107,11 @@ const updateUser = async(e)=>{
                         <input type="text" onChange={editData} value={input.name} name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                     </div>
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">email</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Email</label>
                         <input type="email"  onChange={editData} value ={input.email} name="email" className="form-control" id="exampleInputPassword1" />
                     </div>
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Date of birth</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Date of Birth</label>
                         <input type="date" id="Test_DatetimeLocal" onChange={editData} name="dob" value={input.dob} className="form-control" />
                     </div>
                     
@@ -125,7 +125,7 @@ const updateUser = async(e)=>{
                         <input type="text" onChange={editData} value={input.country} name="country" className="form-control" id="exampleInputPassword1" />
                     </div>
                 </div>
-                <button type="submit" onClick={updateUser} className='btn btn-s'>Update Data <BorderColorIcon/></button>
+                <button type="submit" onClick={updateUser} className='btn bg-slate-700 text-slate-100'>Update Data <BorderColorIcon/></button>
             </form>
         </div>   
     </>

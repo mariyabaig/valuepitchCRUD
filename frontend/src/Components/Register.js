@@ -20,7 +20,7 @@ const Register = () => {
   });
 
   const setData = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const { name, value } = e.target;
     setInput((p) => {
       return {
@@ -43,12 +43,11 @@ const Register = () => {
       body: JSON.stringify({ name, email, dob, address, country }),
     });
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     if (res.status === 404 || !data) {
-      alert("error");
-      console.log("error ");
+      alert("Error");
+      
     } else {
-      alert("data added");
 
       navigate("/");
     }
@@ -128,7 +127,7 @@ const Register = () => {
               />
             </div>
           </div>
-          <button onClick={addInput}  className="btn btn-primary">
+          <button onClick={addInput}  className="btn bg-slate-700 text-slate-100">
             Register
           </button>
         </form>
