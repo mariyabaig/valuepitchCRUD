@@ -98,9 +98,9 @@ const updateUser = async(e)=>{
 
   return (
     <>
-     <div className="container">
+     <div className="flex flex-col justify-center items-center ">
             
-            <form className="mt-4">
+            <form className="form" style={{"marginTop":"120px" , "marginRight" :"12px" , "marginLeft":"12px"  }}>
                 <div className="row">
                     <div className="mb-3 col-lg-6 col-md-6 col-12">
                         <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
@@ -125,7 +125,7 @@ const updateUser = async(e)=>{
                         <input type="text" onChange={editData} value={input.country} name="country" className="form-control" id="exampleInputPassword1" />
                     </div>
                 </div>
-                <button type="submit" onClick={updateUser} className='btn'>Update Data <BorderColorIcon/></button>
+                <button type="submit" onClick={updateUser} className='btn btn-s'>Update Data <BorderColorIcon/></button>
             </form>
         </div>   
     </>

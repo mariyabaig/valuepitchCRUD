@@ -45,10 +45,12 @@ export default function CSVtoTable() {
     // Link : https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsText
   };
 
+   
   return (
 
     <>
     <div className="container flex flex-col justify-center items-center">
+    <h1>Table from CSV</h1>
 
     <form className="mt-36">
         <input
@@ -82,7 +84,7 @@ export default function CSVtoTable() {
         data={csvData}
         csvDelimiter=","
         hasHeader="true"
-        tableClassName="table table-hover table-striped table-dark table-hovered table-bordered"
+        tableClassName="table table-hover table-striped table-dark table-hovered table-bordered" style={{"@media (min-width: 576px)": ""}}
       />
       </div>
      

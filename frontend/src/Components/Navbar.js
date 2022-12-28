@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
+
   return (
     <>
-    
+  
     <nav className='w-full h-20 fixed bg-gray-900 text-gray-300'>
     <input type="checkbox" id="check" hidden></input>
     <label for="check" className='float-right mr-10 text-gray-300 text-3xl leading-[80px] lg:hidden'><MenuIcon/></label>

@@ -8,6 +8,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 
 const Details = () => {
@@ -73,12 +74,14 @@ const Details = () => {
 
        
     return (
-        <div className="container mt-3">
+        <>
+        <div>
+        <div className="flex flex-col justify-center items-center pt-56 ">
             <h1 style={{ fontWeight: 400 }}>Welcome {`${individualUser.name}`}</h1>
 
             <Card sx={{ maxWidth: 600 }}>
                 <CardContent>
-                    <div className="add_btn">
+                    <div className="add_btn ">
                     <NavLink to={`/edit/${individualUser._id}`}> <button className="btn mx-2"><CreateIcon /></button></NavLink>
                     <button className="btn" onClick={() => deleteUser(individualUser._id)}><DeleteOutlineIcon /></button>
                     </div>
@@ -102,6 +105,9 @@ const Details = () => {
                 </CardContent>
             </Card>
         </div>
+        </div>
+        
+        </>
     )
 }
 

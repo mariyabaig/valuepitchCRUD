@@ -56,7 +56,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container flex flex-col justify-center items-center pt-32">
         <form className="mt-4">
           <div className="row">
             <div className="mb-3 col-lg-6 col-md-6 col-12">
